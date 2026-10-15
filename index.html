@@ -4,32 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - นางสาวพิชญ์สินี แก้วมาพะเนาว์ (ผักบุ้ง)</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Prompt -->
+    
+    <!-- Google Fonts: Plus Jakarta Sans & Prompt for Thai Minimal Aesthetic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Prompt', 'sans-serif'],
+                        sans: ['Prompt', 'Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
-                        emerald: {
+                        brand: {
                             50: '#f0fdf4',
                             100: '#dcfce7',
+                            200: '#bbf7d0',
                             500: '#10b981',
                             600: '#059669',
                             700: '#047857',
                             800: '#065f46',
                             900: '#064e3b',
                         },
+                        slateDark: '#0f172a'
                     }
                 }
             }
@@ -38,473 +43,362 @@
     <style>
         body {
             font-family: 'Prompt', sans-serif;
+            background-color: #f8fafc;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
         }
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(229, 231, 235, 0.8);
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
-        .timeline-line::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #e5e7eb;
+        .hero-gradient {
+            background: radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, rgba(248, 250, 252, 0) 70%);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
+<body class="text-slate-700 antialiased selection:bg-brand-500 selection:text-white flex flex-col min-h-screen">
 
-    <!-- Navigation Header -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card transition-all duration-300 shadow-sm">
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header border-b border-slate-200/60 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="#hero" class="flex items-center space-x-2">
-                    <span class="w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-lg shadow-md">ผ</span>
-                    <span class="font-bold text-slate-800 text-lg tracking-tight">พิชญ์สินี <span class="text-emerald-600 font-normal">| Portfolio</span></span>
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <a href="#hero" class="flex items-center gap-3 group">
+                    <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-teal-500 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+                        ผ
+                    </span>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-slate-900 text-base tracking-tight leading-none group-hover:text-brand-600 transition-colors">พิชญ์สินี</span>
+                        <span class="text-xs text-slate-400 font-light mt-0.5">Portfolio 2026</span>
+                    </div>
                 </a>
                 
-                <!-- Desktop Nav Links -->
+                <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
-                    <a href="#about" class="hover:text-emerald-600 transition">ประวัติส่วนตัว</a>
-                    <a href="#motivation" class="hover:text-emerald-600 transition">แรงบันดาลใจ</a>
-                    <a href="#education" class="hover:text-emerald-600 transition">ผลการเรียน</a>
-                    <a href="#experience" class="hover:text-emerald-600 transition">ประสบการณ์/กิจกรรม</a>
-                    <a href="#contact" class="hover:text-emerald-600 transition">ติดต่อ</a>
+                    <a href="#about" class="hover:text-brand-600 transition-colors">เกี่ยวกับฉัน</a>
+                    <a href="#education" class="hover:text-brand-600 transition-colors">การศึกษา</a>
+                    <a href="#experience" class="hover:text-brand-600 transition-colors">ประสบการณ์ & กิจกรรม</a>
+                    <a href="#contact" class="hover:text-brand-600 transition-colors">ติดต่อ</a>
                 </nav>
 
-                <!-- Mobile Menu Button -->
-                <button id="menuBtn" class="md:hidden text-slate-600 hover:text-slate-900 focus:outline-none p-2">
-                    <i class="fa-solid fa-bars text-xl"></i>
+                <div class="hidden md:flex items-center">
+                    <a href="#contact" class="px-5 py-2.5 bg-slate-900 hover:bg-brand-600 text-white text-xs font-semibold rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                        ติดต่อสอบถาม
+                    </a>
+                </div>
+
+                <!-- Mobile Navigation Button -->
+                <button id="menuBtn" aria-label="Toggle Navigation Menu" class="md:hidden text-slate-700 hover:text-brand-600 p-2 focus:outline-none rounded-lg">
+                    <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-3 text-sm font-medium">
-            <a href="#about" class="block text-slate-600 hover:text-emerald-600 py-1">ประวัติส่วนตัว</a>
-            <a href="#motivation" class="block text-slate-600 hover:text-emerald-600 py-1">แรงบันดาลใจ</a>
-            <a href="#education" class="block text-slate-600 hover:text-emerald-600 py-1">ผลการเรียน</a>
-            <a href="#experience" class="block text-slate-600 hover:text-emerald-600 py-1">ประสบการณ์/กิจกรรม</a>
-            <a href="#contact" class="block text-slate-600 hover:text-emerald-600 py-1">ติดต่อ</a>
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 border-b border-slate-200 px-6 pt-3 pb-6 space-y-3 text-sm font-medium shadow-xl">
+            <a href="#about" class="block text-slate-700 hover:text-brand-600 py-2 border-b border-slate-100">เกี่ยวกับฉัน</a>
+            <a href="#education" class="block text-slate-700 hover:text-brand-600 py-2 border-b border-slate-100">ประวัติการศึกษา</a>
+            <a href="#experience" class="block text-slate-700 hover:text-brand-600 py-2 border-b border-slate-100">ประสบการณ์ & กิจกรรม</a>
+            <a href="#contact" class="block text-slate-700 hover:text-brand-600 py-2">ติดต่อ</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="pt-28 pb-16 md:pt-36 md:pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-            <div class="md:col-span-7 space-y-6">
-                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold tracking-wide">
-                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                    มุ่งสู่ : สาขาสาธารณสุขชุมชน วิทยาลัยนครราชสีมา
+    <section id="hero" class="hero-gradient pt-28 pb-16 md:pt-40 md:pb-24 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Left Content -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-700 text-xs font-semibold tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                    นักศึกษาชั้นปีที่ 1 • สาขาสาธารณสุขชุมชน
                 </div>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-                    สวัสดีค่ะ, ดิฉัน <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">นางสาวพิชญ์สินี แก้วมาพะเนาว์</span> (ผักบุ้ง)
+                
+                <h1 class="text-3xl sm:text-5xl lg:text-5xl font-bold text-slate-900 leading-tight tracking-tight">
+                    สวัสดีค่ะ, ดิฉัน <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-teal-600 to-emerald-500">
+                        นางสาวพิชญ์สินี แก้วมาพะเนาว์
+                    </span>
                 </h1>
-                <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
-                    นักเรียนสายวิทยาศาสตร์-คณิตศาสตร์ โรงเรียนบุญวัฒนา ผู้มีความมุ่งมั่นที่จะเข้าศึกษาในคณะสหเวชศาสตร์ สาขาสาธารณสุขชุมชน ด้วยความเชื่อมั่นว่า <em class="text-emerald-700 font-medium font-sans">"การป้องกันคือการรักษาที่ดีที่สุด"</em>
+                
+                <p class="text-slate-600 text-base sm:text-lg font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    ชื่อเล่น <strong class="text-slate-800 font-semibold">"ผักบุ้ง"</strong> ปัจจุบันศึกษาอยู่ที่ <strong class="text-slate-800 font-semibold">วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</strong> คณะสาธารณสุขศาสตร์บัณฑิต มุ่งมั่นในการเรียนรู้และพร้อมพัฒนาสุขภาวะของชุมชนอย่างยั่งยืน
                 </p>
-                <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="#motivation" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium rounded-xl shadow-lg shadow-emerald-600/20 transition transform hover:-translate-y-0.5 flex items-center gap-2">
-                        <span>แรงบันดาลใจ</span>
-                        <i class="fa-solid fa-arrow-down text-sm"></i>
+
+                <!-- Quick Info Badges -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-3 pt-2 text-xs font-medium text-slate-600">
+                    <span class="px-3 py-1.5 bg-white rounded-lg border border-slate-200 shadow-sm"><i class="fa-solid fa-graduation-cap text-brand-600 mr-1.5"></i>GPAX 3.44</span>
+                    <span class="px-3 py-1.5 bg-white rounded-lg border border-slate-200 shadow-sm"><i class="fa-solid fa-square-poll-vertical text-brand-600 mr-1.5"></i>แผนการเรียน วิทย์-คณิต</span>
+                    <span class="px-3 py-1.5 bg-white rounded-lg border border-slate-200 shadow-sm"><i class="fa-solid fa-location-dot text-brand-600 mr-1.5"></i>ขอนแก่น</span>
+                </div>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#about" class="px-6 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-xl shadow-lg shadow-brand-600/25 transition-all duration-300 transform hover:-translate-y-0.5 flex items-center gap-2">
+                        <span>ประวัติส่วนตัว</span>
+                        <i class="fa-solid fa-arrow-down text-xs"></i>
                     </a>
-                    <a href="#contact" class="px-6 py-3 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-medium rounded-xl transition flex items-center gap-2">
-                        <i class="fa-regular fa-envelope"></i>
-                        <span>ติดต่อฉัน</span>
+                    <a href="#contact" class="px-6 py-3.5 bg-white hover:bg-slate-100 text-slate-700 border border-slate-300 font-medium rounded-xl transition-all duration-300 flex items-center gap-2 shadow-sm">
+                        <i class="fa-regular fa-envelope text-brand-600"></i>
+                        <span>ช่องทางการติดต่อ</span>
                     </a>
                 </div>
             </div>
 
-            <div class="md:col-span-5 flex justify-center">
-                <div class="relative w-64 h-64 sm:w-80 sm:h-80">
-                    <!-- Background Decorative Shapes -->
-                    <div class="absolute inset-0 bg-gradient-to-tr from-emerald-400 to-teal-200 rounded-3xl transform rotate-6 opacity-60 filter blur-sm"></div>
-                    <div class="absolute inset-0 bg-slate-900 rounded-3xl transform -rotate-3 opacity-10"></div>
+            <!-- Hero Right Image Card -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-72 h-80 sm:w-80 sm:h-96">
+                    <!-- Decorative Background Shapes -->
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-brand-500 to-teal-300 rounded-3xl blur-lg opacity-40 animate-pulse"></div>
+                    <div class="absolute inset-0 bg-slate-900 rounded-3xl transform rotate-3 opacity-5"></div>
                     
-                    <!-- Avatar Card with Direct Image Integration -->
-                    <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white flex flex-col items-center justify-center text-center p-4 bg-gradient-to-b from-emerald-50 to-white group">
+                    <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white flex flex-col p-4 bg-gradient-to-b from-brand-50/50 via-white to-white group">
                         
-                        <div class="relative w-36 h-36 sm:w-44 sm:h-44 rounded-2xl overflow-hidden shadow-md border-2 border-emerald-200 mb-3 bg-slate-100 flex items-center justify-center">
+                        <div class="relative w-full h-64 sm:h-72 rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 mb-3 bg-slate-100">
                             <img 
                                 src="https://raw.githubusercontent.com/Pitsinee920/pitsinee_port_th/main/c0mzcvhsk700l690k6jh27dzmx9jg8vtgvns3kxn3nc1jfp9d73xfwz5jpjpvgvgjkb2y94nfnbx73qypm4w26txsdclffngqnAtm6h24535c7ttn0xbb3y5cwhhf97vsrxvkApwt4dg7cd28v0hk5y081Aztvwbs8fcj9ngy5dym6scgg51%201%2C240%C3%971%2C755%20%E0%B8%9E%E0%B8%B4%E0%B8%81%E0%B9%80%E0%B8%8B%E0%B8%A5.jpeg" 
                                 alt="รูปโปรไฟล์ นางสาวพิชญ์สินี แก้วมาพะเนาว์" 
-                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                                 onerror="this.src='https://placehold.co/400x500/10b981/ffffff?text=Pitsinee';"
                             />
                         </div>
 
-                        <h3 class="font-bold text-lg text-slate-800 leading-tight">พิชญ์สินี แก้วมาพะเนาว์</h3>
-                        <p class="text-emerald-600 font-medium text-xs mt-0.5">โรงเรียนบุญวัฒนา</p>
-                        
-                        <!-- Link to view original source image on GitHub -->
-                        <a href="https://github.com/Pitsinee920/pitsinee_port_th/blob/main/c0mzcvhsk700l690k6jh27dzmx9jg8vtgvns3kxn3nc1jfp9d73xfwz5jpjpvgvgjkb2y94nfnbx73qypm4w26txsdclffngqnAtm6h24535c7ttn0xbb3y5cwhhf97vsrxvkApwt4dg7cd28v0hk5y081Aztvwbs8fcj9ngy5dym6scgg51%201%2C240%C3%971%2C755%20%E0%B8%9E%E0%B8%B4%E0%B8%81%E0%B9%80%E0%B8%8B%E0%B8%A5.jpeg" target="_blank" rel="noopener noreferrer" class="mt-2 inline-flex items-center gap-1.5 text-[11px] bg-slate-100 hover:bg-emerald-50 text-slate-600 hover:text-emerald-700 px-2.5 py-1 rounded-full transition border border-slate-200">
-                            <i class="fa-regular fa-image text-emerald-600"></i>
-                            <span>ดูรูปภาพต้นฉบับ</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
-                        </a>
-
-                        <div class="mt-3 pt-2 border-t border-slate-100 w-full text-xs text-slate-500 flex justify-around">
-                            <div><span class="block font-bold text-slate-800 text-sm">3.44</span> GPAX 6 เทอม</div>
-                            <div class="border-r border-slate-200"></div>
-                            <div><span class="block font-bold text-slate-800 text-sm">วิทย์-คณิต</span> แผนการเรียน</div>
+                        <div class="text-center my-auto">
+                            <h3 class="font-bold text-base text-slate-800 leading-tight">พิชญ์สินี แก้วมาพะเนาว์</h3>
+                            <p class="text-brand-600 font-medium text-xs mt-0.5">วสส. ขอนแก่น</p>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Profile & Background -->
-    <section id="about" class="py-16 bg-white border-y border-slate-200/60">
+    <!-- Profile & Background Section -->
+    <section id="about" class="py-20 bg-white border-y border-slate-200/60">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">Profile Information</h2>
-                <p class="text-2xl sm:text-3xl font-bold text-slate-900">ประวัติส่วนตัว & ข้อมูลทั่วไป</p>
+            
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Personal Details</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-3">ข้อมูลและประวัติส่วนตัว</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                
                 <!-- Personal Data Card -->
-                <div class="glass-card p-6 rounded-2xl shadow-sm hover:shadow-md transition border border-slate-200/80">
-                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-user"></i>
+                <div class="glass-card p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-regular fa-id-card"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 pb-2 border-b border-slate-100">ข้อมูลส่วนตัว</h3>
-                    <ul class="space-y-3 text-sm text-slate-600">
-                        <li class="flex justify-between"><span class="text-slate-400">ชื่อ-นามสกุล:</span> <span class="font-medium text-slate-800">นางสาวพิชญ์สินี แก้วมาพะเนาว์</span></li>
-                        <li class="flex justify-between"><span class="text-slate-400">ชื่อเล่น:</span> <span class="font-medium text-slate-800">ผักบุ้ง</span></li>
-                        <li class="flex justify-between"><span class="text-slate-400">วันเกิด:</span> <span class="font-medium text-slate-800">18 เมษายน 2551</span></li>
-                        <li class="flex justify-between"><span class="text-slate-400">อายุ:</span> <span class="font-medium text-slate-800">18 ปี</span></li>
-                        <li class="flex justify-between"><span class="text-slate-400">สัญชาติ/เชื้อชาติ:</span> <span class="font-medium text-slate-800">ไทย / ไทย</span></li>
-                        <li class="flex justify-between"><span class="text-slate-400">ศาสนา:</span> <span class="font-medium text-slate-800">พุทธ</span></li>
+                    <h3 class="font-bold text-xl text-slate-800 mb-6 pb-3 border-b border-slate-100 flex items-center justify-between">
+                        <span>ประวัติส่วนตัว</span>
+                        <span class="text-xs text-brand-600 font-normal bg-brand-50 px-2.5 py-1 rounded-lg">ข้อมูลพื้นฐาน</span>
+                    </h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li class="flex justify-between items-center"><span class="text-slate-400">ชื่อ-นามสกุล:</span> <span class="font-semibold text-slate-800">นางสาวพิชญ์สินี แก้วมาพะเนาว์</span></li>
+                        <li class="flex justify-between items-center"><span class="text-slate-400">ชื่อเล่น:</span> <span class="font-semibold text-brand-600">ผักบุ้ง</span></li>
+                        <li class="flex justify-between items-center"><span class="text-slate-400">วันเกิด:</span> <span class="font-semibold text-slate-800">18 เมษายน พ.ศ. 2551</span></li>
+                        <li class="flex justify-between items-center"><span class="text-slate-400">สัญชาติ / เชื้อชาติ:</span> <span class="font-semibold text-slate-800">ไทย / ไทย</span></li>
+                        <li class="flex justify-between items-center"><span class="text-slate-400">ศาสนา:</span> <span class="font-semibold text-slate-800">พุทธ</span></li>
+                        <li class="flex justify-between items-center"><span class="text-slate-400">แผนการเรียนมัธยม:</span> <span class="font-semibold text-slate-800">วิทยาศาสตร์-คณิตศาสตร์</span></li>
                     </ul>
                 </div>
 
-                <!-- Education Background Card -->
-                <div class="glass-card p-6 rounded-2xl shadow-sm hover:shadow-md transition border border-slate-200/80">
-                    <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl mb-4">
+                <!-- Academic Current Status Card -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
+                    <div class="w-12 h-12 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center text-xl mb-6 group-hover:scale-110 transition-transform">
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 pb-2 border-b border-slate-100">ประวัติการศึกษา</h3>
-                    <ul class="space-y-3 text-sm text-slate-600">
-                        <li class="flex justify-between"><span class="text-slate-400">ระดับชั้น:</span> <span class="font-medium text-slate-800">มัธยมศึกษาตอนปลาย</span></li>
-                        <li class="flex justify-between"><span class="text-slate-400">โรงเรียน:</span> <span class="font-medium text-slate-800">โรงเรียนบุญวัฒนา</span></li>
-                        <li class="flex justify-between"><span class="text-slate-400">แผนการเรียน:</span> <span class="font-medium text-slate-800">วิทยาศาสตร์-คณิตศาสตร์</span></li>
-                        <li class="flex justify-between"><span class="text-slate-400">ผลการเรียนรวม (GPAX):</span> <span class="font-bold text-emerald-600 text-base">3.44</span></li>
-                        <li class="flex justify-between"><span class="text-slate-400">เป้าหมายการศึกษา:</span> <span class="font-medium text-slate-800">วิทยาลัยนครราชสีมา</span></li>
+                    <h3 class="font-bold text-xl text-slate-800 mb-6 pb-3 border-b border-slate-100 flex items-center justify-between">
+                        <span>สถานะการศึกษาปัจจุบัน</span>
+                        <span class="text-xs text-teal-600 font-normal bg-teal-50 px-2.5 py-1 rounded-lg">ปัจจุบัน</span>
+                    </h3>
+                    <ul class="space-y-4 text-sm text-slate-600">
+                        <li class="flex justify-between items-start">
+                            <span class="text-slate-400 shrink-0">สถาบัน:</span> 
+                            <span class="font-semibold text-slate-800 text-right">วิทยาลัยการสาธารณสุขสิรินธร <br><span class="text-slate-500 font-normal">จังหวัดขอนแก่น</span></span>
+                        </li>
+                        <li class="flex justify-between items-center"><span class="text-slate-400">คณะ:</span> <span class="font-semibold text-slate-800">สาธารณสุขศาสตร์บัณฑิต</span></li>
+                        <li class="flex justify-between items-center"><span class="text-slate-400">สาขาวิชา:</span> <span class="font-semibold text-brand-600">สาธารณสุขชุมชน</span></li>
+                        <li class="flex justify-between items-center"><span class="text-slate-400">ระดับชั้น:</span> <span class="font-semibold text-slate-800">ชั้นปีที่ 1</span></li>
+                        <li class="flex justify-between items-center"><span class="text-slate-400">เกรดเฉลี่ยสะสม (GPAX):</span> <span class="font-bold text-brand-600 bg-brand-50 px-2 py-0.5 rounded border border-brand-200">3.44</span></li>
                     </ul>
                 </div>
 
-                <!-- Family Card -->
-                <div class="glass-card p-6 rounded-2xl shadow-sm hover:shadow-md transition border border-slate-200/80">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-600 flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-users"></i>
-                    </div>
-                    <h3 class="font-bold text-lg text-slate-800 mb-4 pb-2 border-b border-slate-100">ประวัติครอบครัว</h3>
-                    <div class="space-y-4 text-sm text-slate-600">
-                        <div>
-                            <span class="block text-slate-400 text-xs uppercase font-semibold">บิดา</span>
-                            <p class="font-medium text-slate-800">นายไพฑูรย์ แก้วมาพะเนาว์</p>
-                            <p class="text-xs text-slate-500">อาชีพ: รับจ้าง</p>
-                        </div>
-                        <div class="pt-2 border-t border-slate-100">
-                            <span class="block text-slate-400 text-xs uppercase font-semibold">มารดา</span>
-                            <p class="font-medium text-slate-800">นางสาวสมใจ เซียงหนู</p>
-                            <p class="text-xs text-slate-500">อาชีพ: รับจ้าง</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Motivation / Statement of Purpose -->
-    <section id="motivation" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-to-br from-emerald-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-            <!-- Decorative circle -->
-            <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-emerald-500/10 rounded-full blur-2xl"></div>
+    <!-- Academic History Timeline Section -->
+    <section id="education" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Education Background</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-3">ประวัติการศึกษา</h2>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-6">
             
-            <div class="relative z-10 max-w-4xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold mb-6 border border-emerald-500/30">
-                    <i class="fa-solid fa-quote-left"></i>
-                    Statement of Purpose
+            <!-- Timeline Item 1 -->
+            <div class="glass-card p-6 sm:p-7 rounded-2xl border border-slate-200/80 flex items-start gap-4 sm:gap-6 hover:border-brand-500 transition-colors">
+                <div class="w-12 h-12 rounded-2xl bg-brand-600 text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md shadow-brand-600/20">
+                    1
                 </div>
-                <h2 class="text-2xl sm:text-3xl font-bold mb-6 text-white leading-snug">
-                    เหตุผลที่เลือกศึกษาคณะสหเวชศาสตร์ สาขาสาธารณสุขชุมชน<br>
-                    <span class="text-emerald-400 text-lg font-normal">วิทยาลัยนครราชสีมา</span>
-                </h2>
-
-                <div class="space-y-4 text-slate-300 text-base leading-relaxed font-light">
-                    <p class="bg-white/5 p-4 rounded-xl border border-white/10">
-                        <strong class="text-emerald-300 font-normal">"การป้องกันคือการรักษาที่ดีที่สุด"</strong> — ดิฉันเชื่อว่า ปัญหาสุขภาพส่วนใหญ่ในชุมชนเกิดจากการขาดความรู้และการจัดการเชิงรุก ซึ่งหากเราสามารถสร้างความตระหนักรู้และวางระบบสาธารณสุขที่ดีได้ จะช่วยลดอัตราการเจ็บป่วยได้อย่างยั่งยืน ดิฉันจึงมีความมุ่งมั่นที่จะเข้าศึกษาในคณะสาธารณสุขศาสตร์ วิทยาลัยนครราชสีมา เพื่อนำความรู้มาพัฒนาสุขภาวะของคนในสังคม โดยเฉพาะในระดับชุมชนให้มีคุณภาพชีวิตที่ดีขึ้น
-                    </p>
-                    <p class="pt-2">
-                        ในยุคปัจจุบันที่โลกต้องเผชิญกับโรคอุบัติใหม่และความท้าทายด้านสิ่งแวดล้อม งานด้านสาธารณสุขจึงเป็นหัวใจสำคัญในการขับเคลื่อนสังคมให้ปลอดภัยอย่างยั่งยืน ดิฉันมีความสนใจในด้านสาธารณสุขชุมชน และเล็งเห็นว่าหลักสูตรของวิทยาลัยนครราชสีมา มีความเข้มข้นทั้งภาคทฤษฎีและปฏิบัติ ซึ่งจะช่วยหล่อหลอมให้ดิฉันมีทักษะในการวิเคราะห์ วางแผน และจัดการปัญหาสุขภาพในวงกว้างได้อย่างมีประสิทธิภาพ
-                    </p>
-                </div>
-
-                <div class="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
-                    <div>
-                        <p class="font-semibold text-white">นางสาวพิชญ์สินี แก้วมาพะเนาว์</p>
-                        <p class="text-xs text-emerald-400">ผู้จัดทำ / ผู้สมัครเข้าศึกษา</p>
+                <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-brand-100 text-brand-800">ปัจจุบัน</span>
+                        <span class="text-xs text-slate-400">ระดับอุดมศึกษา</span>
                     </div>
-                    <span class="text-3xl text-emerald-500/40 font-serif italic">"</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Academic Transcript Section -->
-    <section id="education" class="py-16 bg-white border-t border-slate-200/60">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10">
-                <div>
-                    <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">Academic Performance</h2>
-                    <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">ผลการเรียนและคะแนนเฉลี่ยกลุ่มสาระ</h3>
-                </div>
-                <div class="mt-4 md:mt-0 bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-xl text-emerald-800 text-sm font-medium">
-                    GPAX 6 ภาคเรียน : <span class="font-bold text-emerald-700 text-lg">3.44</span>
+                    <h3 class="text-lg font-bold text-slate-900">วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</h3>
+                    <p class="text-slate-600 text-sm">คณะสาธารณสุขศาสตร์บัณฑิต สาขาวิชาสาธารณสุขชุมชน (ชั้นปีที่ 1)</p>
                 </div>
             </div>
 
-            <!-- Subject Performance Cards -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 transition">
-                    <p class="text-xs text-slate-500 mb-1">กลุ่มสาระการเรียนรู้</p>
-                    <h4 class="font-semibold text-slate-800 mb-2">ภาษาไทย</h4>
-                    <p class="text-2xl font-bold text-emerald-600">3.75</p>
-                    <p class="text-xs text-slate-400 mt-1">18.0 หน่วยกิต</p>
+            <!-- Timeline Item 2 -->
+            <div class="glass-card p-6 sm:p-7 rounded-2xl border border-slate-200/80 flex items-start gap-4 sm:gap-6 hover:border-brand-500 transition-colors">
+                <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-lg shrink-0">
+                    2
                 </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 transition">
-                    <p class="text-xs text-slate-500 mb-1">กลุ่มสาระการเรียนรู้</p>
-                    <h4 class="font-semibold text-slate-800 mb-2">สังคมศึกษาฯ</h4>
-                    <p class="text-2xl font-bold text-emerald-600">3.79</p>
-                    <p class="text-xs text-slate-400 mt-1">6.0 หน่วยกิต</p>
-                </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 transition">
-                    <p class="text-xs text-slate-500 mb-1">กลุ่มสาระการเรียนรู้</p>
-                    <h4 class="font-semibold text-slate-800 mb-2">ศิลปะ</h4>
-                    <p class="text-2xl font-bold text-emerald-600">3.91</p>
-                    <p class="text-xs text-slate-400 mt-1">3.0 หน่วยกิต</p>
-                </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 transition">
-                    <p class="text-xs text-slate-500 mb-1">กลุ่มสาระการเรียนรู้</p>
-                    <h4 class="font-semibold text-slate-800 mb-2">การงานอาชีพ</h4>
-                    <p class="text-2xl font-bold text-emerald-600">3.75</p>
-                    <p class="text-xs text-slate-400 mt-1">3.0 หน่วยกิต</p>
-                </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 transition">
-                    <p class="text-xs text-slate-500 mb-1">กลุ่มสาระการเรียนรู้</p>
-                    <h4 class="font-semibold text-slate-800 mb-2">สุขศึกษาและพลศึกษา</h4>
-                    <p class="text-2xl font-bold text-emerald-600">3.56</p>
-                    <p class="text-xs text-slate-400 mt-1">8.0 หน่วยกิต</p>
-                </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 transition">
-                    <p class="text-xs text-slate-500 mb-1">กลุ่มสาระการเรียนรู้</p>
-                    <h4 class="font-semibold text-slate-800 mb-2">ภาษาต่างประเทศ</h4>
-                    <p class="text-2xl font-bold text-emerald-600">3.45</p>
-                    <p class="text-xs text-slate-400 mt-1">16.0 หน่วยกิต</p>
-                </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 transition">
-                    <p class="text-xs text-slate-500 mb-1">กลุ่มสาระการเรียนรู้</p>
-                    <h4 class="font-semibold text-slate-800 mb-2">คณิตศาสตร์</h4>
-                    <p class="text-2xl font-bold text-emerald-600">3.38</p>
-                    <p class="text-xs text-slate-400 mt-1">6.0 หน่วยกิต</p>
-                </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-emerald-300 transition">
-                    <p class="text-xs text-slate-500 mb-1">กลุ่มสาระการเรียนรู้</p>
-                    <h4 class="font-semibold text-slate-800 mb-2">วิทยาศาสตร์และเทคโนโลยี</h4>
-                    <p class="text-2xl font-bold text-emerald-600">3.20</p>
-                    <p class="text-xs text-slate-400 mt-1">33.0 หน่วยกิต</p>
+                <div class="space-y-1">
+                    <span class="text-xs text-slate-400">ระดับมัธยมศึกษา (ม.1 - ม.6)</span>
+                    <h3 class="text-lg font-bold text-slate-900">โรงเรียนบุญวัฒนา</h3>
+                    <p class="text-brand-600 font-medium text-xs">แผนการเรียน วิทย์-คณิต • GPAX 3.44</p>
                 </div>
             </div>
 
-            <!-- Additional Achievements Info -->
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-check-circle text-emerald-600 text-xl"></i>
-                    <div>
-                        <p class="text-xs text-slate-500">การอ่าน คิดวิเคราะห์ และเขียน</p>
-                        <p class="font-semibold text-slate-800">ระดับดีเยี่ยม</p>
-                    </div>
+            <!-- Timeline Item 3 -->
+            <div class="glass-card p-6 sm:p-7 rounded-2xl border border-slate-200/80 flex items-start gap-4 sm:gap-6 hover:border-brand-500 transition-colors">
+                <div class="w-12 h-12 rounded-2xl bg-slate-100 text-slate-700 flex items-center justify-center font-bold text-lg shrink-0">
+                    3
                 </div>
-                <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-check-circle text-emerald-600 text-xl"></i>
-                    <div>
-                        <p class="text-xs text-slate-500">คุณลักษณะอันพึงประสงค์</p>
-                        <p class="font-semibold text-slate-800">ระดับดีเยี่ยม</p>
-                    </div>
-                </div>
-                <div class="flex items-center space-x-3">
-                    <i class="fa-solid fa-award text-emerald-600 text-xl"></i>
-                    <div>
-                        <p class="text-xs text-slate-500">สอบได้ธรรมศึกษา</p>
-                        <p class="font-semibold text-slate-800">ธรรมศึกษาชั้นตรี (ปี 2564)</p>
-                    </div>
+                <div class="space-y-1">
+                    <span class="text-xs text-slate-400">ระดับประถมศึกษา (ป.1 - ป.6)</span>
+                    <h3 class="text-lg font-bold text-slate-900">โรงเรียนวัดสระแก้ว</h3>
+                    <p class="text-slate-500 text-xs">สำเร็จการศึกษาตามหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน</p>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- Experience and Activities Section -->
-    <section id="experience" class="py-16 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-600 mb-2">Activities & Experience</h2>
-            <p class="text-2xl sm:text-3xl font-bold text-slate-900">ประสบการณ์ฝึกงาน & กิจกรรม</p>
-        </div>
-
-        <div class="space-y-8">
-            <!-- Activity Item 1: Internship -->
-            <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-200/80 relative shadow-sm hover:shadow-md transition">
-                <div class="flex flex-col lg:flex-row justify-between gap-6">
-                    <div class="space-y-3 flex-1">
-                        <div class="flex items-center gap-2">
-                            <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">ฝึกประสบการณ์อาชีพ (35 ชม.)</span>
-                            <span class="text-xs text-slate-500"><i class="fa-regular fa-calendar me-1"></i>28 ก.ย. - 3 ต.ค. 2568</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900">การฝึกประสบการณ์ ณ ศูนย์การแพทย์ชุมชนเมือง 1 หัวทะเล</h3>
-                        <p class="text-sm font-medium text-emerald-700">โรงพยาบาลมหาราชนครราชสีมา</p>
-                        
-                        <p class="text-slate-600 text-sm leading-relaxed pt-2">
-                            ได้เรียนรู้บทบาทหน้าที่ของบุคลากรทางการแพทย์ ปฐมนิเทศรู้จักระบบโรงพยาบาล เข้าใจขั้นตอนการให้บริการผู้ป่วย ณ จุดคัดกรอง ซักประวัติ วัดความดันโลหิต ติดตามอาการผู้ป่วยทั่วไปและโรคเรื้อรัง (เช่น เบาหวาน ความดัน) 
-                        </p>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            <strong class="text-slate-800">ประสบการณ์สำคัญ:</strong> ได้ลงพื้นที่ชุมชนเยี่ยมบ้านผู้ป่วย เรียนรู้การทำงานกายภาพบำบัดของผู้ป่วยร่วมกับทีมแพทย์ ทำให้ตระหนักถึงความสำคัญของการดูแลผู้ป่วยอย่างใกล้ชิด และเพิ่มความสนใจมุ่งมั่นในการเรียนต่อด้านสาธารณสุข
-                        </p>
-                    </div>
-
-                    <div class="lg:w-1/3 bg-slate-100 p-4 rounded-xl flex flex-col justify-between border border-slate-200">
-                        <div>
-                            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">หนังสือรับรองการฝึกงาน</p>
-                            <p class="text-xs text-slate-700 leading-normal">
-                                ออกโดย <br><strong class="text-slate-900">นายวีระ สุดประเสริฐ</strong><br>
-                                รองผู้อำนวยการภารกิจด้านพัฒนาระบบบริการฯ<br>
-                                ปฏิบัติราชการแทน ผู้อำนวยการโรงพยาบาลมหาราชนครราชสีมา
-                            </p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center gap-2 text-xs text-emerald-700 font-medium">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span>ผ่านการประเมินการฝึกงานจิตอาสา</span>
-                        </div>
-                    </div>
-                </div>
+    <section id="experience" class="py-20 bg-white border-t border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Activities & Experience</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-3">ประสบการณ์ฝึกงาน & กิจกรรม</h2>
             </div>
 
-            <!-- Activity Item 2: Academic Camp -->
-            <div class="glass-card p-6 sm:p-8 rounded-2xl border border-slate-200/80 relative shadow-sm hover:shadow-md transition">
-                <div class="flex flex-col lg:flex-row justify-between gap-6">
-                    <div class="space-y-3 flex-1">
-                        <div class="flex items-center gap-2">
-                            <span class="px-3 py-1 bg-teal-100 text-teal-800 text-xs font-semibold rounded-full">ค่ายวิชาการ / อบรมเชิงปฏิบัติการ</span>
-                            <span class="text-xs text-slate-500"><i class="fa-regular fa-calendar me-1"></i>24 - 26 มกราคม 2567</span>
+            <div class="space-y-8 max-w-4xl mx-auto">
+                
+                <!-- Activity Item 1: Internship -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-14 h-14 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-hospital-user"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-slate-900">โครงการ "เด็กไทยใฝ่ดี"</h3>
-                        <p class="text-sm font-medium text-teal-700">ณ โรงพยาบาลมหาราชนครราชสีมา</p>
-                        
-                        <p class="text-slate-600 text-sm leading-relaxed pt-2">
-                            เข้าร่วมการอบรมเชิงปฏิบัติการการช่วยชีวิตขั้นพื้นฐาน (Basic Life Support) ฝึกทำ CPR และฝึกการใช้เครื่องฟื้นคืนคลื่นหัวใจด้วยไฟฟ้าแบบอัตโนมัติ (AED) รวมถึงเรียนรู้การปฐมพยาบาลเบื้องต้นอย่างถูกต้อง
-                        </p>
-                        <p class="text-slate-600 text-sm leading-relaxed">
-                            <strong class="text-slate-800">ประโยชน์ที่ได้รับ:</strong> มีความเข้าใจในหลักการช่วยชีวิตอย่างถูกวิธี สร้างความมั่นใจและตระหนักถึงความสำคัญในการดูแลความปลอดภัยให้ผู้อื่นในภาวะฉุกเฉิน
-                        </p>
-                    </div>
-
-                    <div class="lg:w-1/3 bg-slate-100 p-4 rounded-xl flex flex-col justify-between border border-slate-200">
-                        <div>
-                            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">ประธานโครงการ & เกียรติบัตร</p>
-                            <p class="text-xs text-slate-700 leading-normal">
-                                • <strong class="text-slate-900">ศ.เกียรติคุณ นพ. เกษม วัฒนชัย</strong> (ประธานกรรมการโครงการฯ)<br>
-                                • <strong class="text-slate-900">ศ.คลินิก นพ. อาทิตย์ อังกานนท์</strong> (คณบดีคณะแพทยศาสตร์ โรงพยาบาลรามาธิบดี)
+                        <div class="space-y-3 flex-1">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="px-3 py-1 bg-brand-100 text-brand-800 text-xs font-semibold rounded-full">ฝึกประสบการณ์อาชีพ (35 ชม.)</span>
+                                <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>28 ก.ย. - 3 ต.ค. 2568</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">การฝึกประสบการณ์ ณ ศูนย์การแพทย์ชุมชนเมือง 1 หัวทะเล</h3>
+                            <p class="text-sm font-medium text-brand-700">โรงพยาบาลมหาราชนครราชสีมา</p>
+                            
+                            <p class="text-slate-600 text-sm leading-relaxed pt-2">
+                                ได้เรียนรู้บทบาทหน้าที่ของบุคลากรทางการแพทย์ เข้าร่วมปฐมนิเทศเพื่อเข้าใจระบบงานบริการผู้ป่วย ณ จุดคัดกรอง ซักประวัติ วัดความดันโลหิต ติดตามอาการผู้ป่วยทั่วไปและผู้ป่วยโรคเรื้อรัง รวมถึงการลงพื้นที่ชุมชนเพื่อเรียนรู้กระบวนการดูแลและกายภาพบำบัดผู้ป่วยในชุมชนจริง
                             </p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-slate-200 flex items-center gap-2 text-xs text-teal-700 font-medium">
-                            <i class="fa-solid fa-certificate"></i>
-                            <span>ได้รับเกียรติบัตรการอบรม</span>
                         </div>
                     </div>
                 </div>
+
+                <!-- Activity Item 2: Academic Camp -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/80 shadow-sm hover:shadow-md transition-all">
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="w-14 h-14 rounded-2xl bg-teal-100 text-teal-600 flex items-center justify-center text-2xl shrink-0">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <div class="space-y-3 flex-1">
+                            <div class="flex flex-wrap items-center gap-2">
+                                <span class="px-3 py-1 bg-teal-100 text-teal-800 text-xs font-semibold rounded-full">อบรมเชิงปฏิบัติการ</span>
+                                <span class="text-xs text-slate-400"><i class="fa-regular fa-calendar mr-1"></i>24 - 26 มกราคม 2567</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-900">โครงการ "เด็กไทยใฝ่ดี"</h3>
+                            <p class="text-sm font-medium text-teal-700">ณ โรงพยาบาลมหาราชนครราชสีมา</p>
+                            
+                            <p class="text-slate-600 text-sm leading-relaxed pt-2">
+                                เข้าร่วมการอบรมเชิงปฏิบัติการการช่วยชีวิตขั้นพื้นฐาน (Basic Life Support) ฝึกปฏิบัติการปั๊มหัวใจ (CPR) และการใช้งานเครื่องฟื้นคืนคลื่นหัวใจด้วยไฟฟ้าแบบอัตโนมัติ (AED) ตลอดจนการปฐมพยาบาลเบื้องต้น
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-white border-t border-slate-200/60">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center space-y-4">
-                <h2 class="text-xs font-bold uppercase tracking-wider text-emerald-600">Contact Information</h2>
-                <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">ช่องทางการติดต่อ</h3>
-                <p class="text-slate-600 text-sm">พร้อมสำหรับการเรียนรู้และร่วมเป็นส่วนหนึ่งของวิทยาลัยนครราชสีมา</p>
-            </div>
+    <section id="contact" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-200">Contact Information</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">ช่องทางการติดต่อ</h2>
+            <p class="text-slate-500 text-sm">สามารถติดต่อสอบถามเพิ่มเติมหรือพูดคุยผ่านช่องทางด้านล่างนี้ค่ะ</p>
+        </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
-                <!-- Phone -->
-                <a href="tel:0656833450" class="glass-card p-6 rounded-2xl border border-slate-200 text-center hover:border-emerald-500 hover:shadow-md transition group">
-                    <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-emerald-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-phone"></i>
-                    </div>
-                    <p class="text-xs text-slate-400 mb-1">เบอร์โทรศัพท์</p>
-                    <p class="font-bold text-slate-800 text-base">065-683-3450</p>
-                </a>
-
-                <!-- Email -->
-                <a href="mailto:pitsii184451@gmail.com" class="glass-card p-6 rounded-2xl border border-slate-200 text-center hover:border-emerald-500 hover:shadow-md transition group">
-                    <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-emerald-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-envelope"></i>
-                    </div>
-                    <p class="text-xs text-slate-400 mb-1">อีเมล</p>
-                    <p class="font-bold text-slate-800 text-sm break-all">pitsii184451@gmail.com</p>
-                </a>
-
-                <!-- Facebook -->
-                <div class="glass-card p-6 rounded-2xl border border-slate-200 text-center hover:border-emerald-500 hover:shadow-md transition group">
-                    <div class="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-emerald-600 group-hover:text-white transition">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </div>
-                    <p class="text-xs text-slate-400 mb-1">Facebook</p>
-                    <p class="font-bold text-slate-800 text-sm">Pitsinee kaewmaphanao</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 max-w-2xl mx-auto">
+            
+            <!-- Phone Box -->
+            <a href="tel:0656833450" class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/80 text-center hover:border-brand-500 hover:shadow-lg transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                    <i class="fa-solid fa-phone"></i>
                 </div>
-            </div>
+                <p class="text-xs text-slate-400 mb-1">เบอร์โทรศัพท์</p>
+                <p class="font-bold text-slate-800 text-base">065-683-3450</p>
+            </a>
 
-            <!-- Quote Footer Banner -->
-            <div class="mt-16 text-center pt-8 border-t border-slate-100">
-                <p class="text-slate-500 italic text-sm">
-                    "ชีวิตคือการเรียนรู้ ไม่มีใครสมบูรณ์แบบตั้งแต่แรก"
-                </p>
-            </div>
+            <!-- Email Box -->
+            <a href="mailto:pitsinee18042551@gmail.com" class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/80 text-center hover:border-brand-500 hover:shadow-lg transition-all group">
+                <div class="w-16 h-16 rounded-2xl bg-brand-100 text-brand-600 flex items-center justify-center text-2xl mx-auto mb-4 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+                <p class="text-xs text-slate-400 mb-1">อีเมล (Email)</p>
+                <p class="font-bold text-slate-800 text-sm break-all">pitsinee18042551@gmail.com</p>
+            </a>
+
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-8 text-xs text-center border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4">
-            <p>© 2026 Portfolio - นางสาวพิชญ์สินี แก้วมาพะเนาว์ (ผักบุ้ง)</p>
-            <p class="mt-1 text-slate-500">สมัครเข้าศึกษา คณะสหเวชศาสตร์ สาขาสาธารณสุขชุมชน วิทยาลัยนครราชสีมา</p>
+    <footer class="mt-auto bg-slate-900 text-slate-400 py-10 text-xs text-center border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p class="font-medium text-slate-300">© 2026 Portfolio - นางสาวพิชญ์สินี แก้วมาพะเนาว์ (ผักบุ้ง)</p>
+            <p class="text-slate-500">คณะสาธารณสุขศาสตร์บัณฑิต สาขาวิชาสาธารณสุขชุมชน • วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</p>
         </div>
     </footer>
 
     <script>
-        // Toggle Mobile Menu
+        // Toggle Mobile Menu Navigation
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
 
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-xl';
+            }
         });
 
-        // Close mobile menu when clicking nav links
+        // Close Mobile Menu on Link Click
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-xl';
             });
         });
     </script>
